@@ -1,0 +1,3 @@
+*.pyc
+simplejson
+lastime.cache
