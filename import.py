@@ -32,8 +32,7 @@ for i in range(len(fp['entries'])):
   datetime = time.mktime(item['updated_parsed'])
   
   if int(datetime) > int(lasttime):
-    tweet = item['title'].split(": ")[1]
-    print tweet
+    tweet = item['title'].split(": ")[1].encode( "utf-8" )
     user = item['title'].split(": ")[0]
     link= item['link']
     
