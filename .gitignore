@@ -1,3 +1,4 @@
 *.pyc
 simplejson
-lastime.cache
+*.cache
+config.ini
