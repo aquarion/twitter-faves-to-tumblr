@@ -30,6 +30,7 @@ try:
 	oauth_token = pickle.load(f)
 	f.close();
 except:
+	print "Couldn't open %s, reloading..." % OAUTHCACHE
 	oauth_token = False
 
 if(not oauth_token):
