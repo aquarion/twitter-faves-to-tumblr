@@ -12,13 +12,15 @@ from tumblr.oauth import TumblrOAuthClient
 from tumblr import TumblrClient
 
 config  = ConfigParser.ConfigParser()
-#try:
-#    config.readfp(open(basedir+'/config.ini'))
-#except IOError:
-config.readfp(open(os.getcwd()+'/config.ini'))
+basedir = os.path.dirname(os.path.abspath(sys.argv[0]))
 
-TIMECACHE  = os.getcwd()+'/'+config.get("cache", "time")
-OAUTHCACHE = os.getcwd()+'/'+config.get("cache", "oauth")
+try:
+    config.readfp(open(basedir+'/config.ini'))
+except IOError:
+	config.readfp(open(os.getcwd()+'/config.ini'))
+
+TIMECACHE  = basedir+'/'+config.get("cache", "time")
+OAUTHCACHE = basedir+'/'+config.get("cache", "oauth")
 FAVOURITES = "https://api.twitter.com/1/favorites.rss?screen_name=%s" % config.get("twitter", "username")
 
 
