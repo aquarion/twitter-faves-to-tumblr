@@ -106,8 +106,10 @@ for favourite in favourites:
 		tweet = favourite['text'].encode('utf8')
 		user = favourite['user']['screen_name']
 		link = 'http://twitter.com/%s/status/%s' % (favourite['user']['screen_name'], favourite['id'])
-		source = '<a href="%s">@%s</a> (Favourited on Twitter by @%s' % (link, user, config.get("twitter", "username"))
+		source = '<a href="%s">@%s</a> (Favourited on Twitter by @%s)' % (link, user, config.get("twitter", "username"))
 		source = source.encode('utf8')
+
+		print tweet
 
 		post = tumblrClient.create_quote("tumblr.aquarionics.com", quote=tweet,source=source)
 		
