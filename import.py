@@ -97,10 +97,9 @@ tumblrClient = tumblrAuth(config, OAUTH_TUMBLR);
 
 favourites = twitterClient.favorites.list(screen_name=config.get("twitter", "username"))
 
-newhighest = 0;
+newhighest = long(highestid);
 
 for favourite in favourites:
-	
 	if long(favourite['id']) > long(highestid):
 
 		tweet = favourite['text'].encode('utf8')
@@ -109,10 +108,8 @@ for favourite in favourites:
 		source = '<a href="%s">@%s</a> (Favourited on Twitter by @%s)' % (link, user, config.get("twitter", "username"))
 		source = source.encode('utf8')
 
-		print tweet
-
 		post = tumblrClient.create_quote("tumblr.aquarionics.com", quote=tweet,source=source)
-		
+		#print favourite['id']
 		if long(favourite['id']) > newhighest:
 			newhighest = favourite['id']
 
