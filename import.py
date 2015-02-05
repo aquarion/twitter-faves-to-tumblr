@@ -19,6 +19,9 @@ from twitter import Twitter
 from twitter.oauth import OAuth, write_token_file, read_token_file
 from twitter.oauth_dance import oauth_dance
 
+import socket
+socket.setdefaulttimeout(60) # Force a timeout if twitter doesn't respond
+
 config  = ConfigParser.ConfigParser()
 basedir = os.path.dirname(os.path.abspath(sys.argv[0]))
 
