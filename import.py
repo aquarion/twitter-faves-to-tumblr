@@ -127,8 +127,8 @@ def text_tweet(favourite):
         source=source, tags=["twitterfave"])
 
     # print favourite['id']
-    if long(favourite['id']) > newhighest:
-        newhighest = favourite['id']
+    #if long(favourite['id']) > newhighest:
+    #    newhighest = favourite['id']
 
 
 def photo_tweet(favourite):
@@ -156,7 +156,7 @@ for favourite in favourites:
         if 'entities' in favourite and 'media' in favourite['entities']:
             photo_tweet(favourite)
         else:
-            quote_tweet(favourite)
+            text_tweet(favourite)
 
         if long(favourite['id']) > newhighest:
             newhighest = favourite['id']
